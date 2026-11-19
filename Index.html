@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>B-TECH IT SOLUTION</title>
+    <style>
+        body { font-family: sans-serif; margin: 0; padding: 0; background: #f4f4f4; }
+        header { background: #0056b3; color: white; padding: 1rem; text-align: center; }
+        .container { padding: 20px; }
+        .section { background: white; margin-bottom: 20px; padding: 15px; border-radius: 8px; }
+        h2 { color: #0056b3; }
+        button { background: #28a745; color: white; border: none; padding: 10px 15px; border-radius: 5px; cursor: pointer; font-size: 16px; }
+        .product-list { display: flex; flex-direction: column; gap: 10px; }
+        .product-item { display: flex; justify-content: space-between; align-items: center; padding: 10px; border-bottom: 1px solid #ccc; }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>B-TECH IT SOLUTION</h1>
+    <p>Tumuni, Angul, Odisha</p>
+</header>
+
+<div class="container">
+    <div class="section">
+        <h2>Book a Repair Service</h2>
+        <form id="bookingForm">
+            <label for="service">Select Service:</label><br>
+            <select id="service" name="service" style="width: 100%; padding: 10px; margin: 10px 0;">
+                <option value="Laptop Repair">Laptop Repair</option>
+                <option value="Desktop Repair">Desktop Repair</option>
+                <option value="Printer Service">Printer Service</option>
+            </select><br>
+            <button type="button" onclick="bookService()">Book on WhatsApp</button>
+        </form>
+    </div>
+
+    <div class="section">
+        <h2>Spare Parts Order Bag</h2>
+        <div class="product-list">
+            <div class="product-item">
+                <span>SSD 256GB</span>
+                <button onclick="orderPart('SSD 256GB')">Order on WhatsApp</button>
+            </div>
+            <div class="product-item">
+                <span>RAM 8GB DDR4</span>
+                <button onclick="orderPart('RAM 8GB DDR4')">Order on WhatsApp</button>
+            </div>
+            <div class="product-item">
+                <span>HP 88A Toner Cartridge</span>
+                <button onclick="orderPart('HP 88A Toner Cartridge')">Order on WhatsApp</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    const phoneNumber = "9861474654";
+
+    function bookService() {
+        const service = document.getElementById("service").value;
+        const message = `Hello, I want to book: ${service}`;
+        window.open(`https://wa.me/91${phoneNumber}?text=${encodeURIComponent(message)}`, '_blank');
+    }
+
+    function orderPart(partName) {
+        const message = `Hello, I want to order this spare part: ${partName}`;
+        window.open(`https://wa.me/91${phoneNumber}?text=${encodeURIComponent(message)}`, '_blank');
+    }
+</script>
+
+</body>
+</html>
